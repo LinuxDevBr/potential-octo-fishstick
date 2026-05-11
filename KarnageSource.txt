@@ -1575,7 +1575,7 @@ function Karnage:Notify(config)
     
     local ProgressFill = Karnage.Instance("Frame", {
         Parent = ProgressBar,
-        BackgroundColor3 = Color3.fromRGB(120, 160, 255),
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
         Size = UDim2.new(0, 0, 1, 0),
         ZIndex = 101,
         BorderSizePixel = 1,
@@ -2396,7 +2396,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
         
         local TabHighlightBar = Karnage.Instance("Frame", {
             Parent = TabBtn,
-            BackgroundColor3 = Color3.fromRGB(120, 160, 255),
+            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
             BackgroundTransparency = 0,
             BorderSizePixel = 0,
             Size = UDim2.new(0, 0, 0, 18),
@@ -2410,20 +2410,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
             CornerRadius = UDim.new(0, 7)
         })
 
-        Karnage.Instance("UIGradient", {
-            Parent = TabHighlightBar,
-            Color = ColorSequence.new({
-                ColorSequenceKeypoint.new(0, Color3.fromRGB(95, 135, 235)),
-                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(120, 160, 255)),
-                ColorSequenceKeypoint.new(1, Color3.fromRGB(95, 135, 235))
-            }),
-            Rotation = 90,
-            Transparency = NumberSequence.new({
-                NumberSequenceKeypoint.new(0, 0.18),
-                NumberSequenceKeypoint.new(0.5, 0),
-                NumberSequenceKeypoint.new(1, 0.18)
-            })
-        })
+
         
         
         local TabIcon
@@ -3145,7 +3132,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
             
             local ToggleTrack = Karnage.Instance("Frame", {
                 Parent = Toggle,
-                BackgroundColor3 = Color3.fromRGB(52, 52, 52),
+                BackgroundColor3 = Color3.fromRGB(75, 75, 80),
 
                 Size = UDim2.new(0, 36, 0, 18),
                 Position = UDim2.new(1, -46, 0.5, -9),
@@ -3167,21 +3154,12 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                 Enabled = false
             })
 
-            local ToggleGradient = Karnage.Instance("UIGradient", {
-                Parent = ToggleTrack,
-                Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(95, 135, 235)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(120, 160, 255)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(95, 135, 235))
-                }),
-                Rotation = 90,
-                Transparency = NumberSequence.new(1)
-            })
+
 
             
             local ToggleKnob = Karnage.Instance("Frame", {
                 Parent = ToggleTrack,
-                BackgroundColor3 = Color3.fromRGB(82, 82, 82),
+                BackgroundColor3 = Color3.fromRGB(160, 160, 165),
 
                 Size = UDim2.new(0, 14, 0, 14),
                 Position = UDim2.new(0, 2, 0.5, -7),
@@ -3212,7 +3190,6 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                 local thisTrack = thisToggle:FindFirstChild("Track")
                 local thisKnob = thisTrack and thisTrack:FindFirstChild("Knob")
                 local thisStroke = thisTrack and thisTrack:FindFirstChild("UIStroke")
-                local thisGradient = thisTrack and thisTrack:FindFirstChildOfClass("UIGradient")
                 local thisText = thisToggle:FindFirstChild("ToggleText")
                 
                 if thisTrack and thisKnob then
@@ -3220,7 +3197,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                     
                     if currentState then
                         local tween1 = TweenService:Create(thisTrack, tween, {
-                            BackgroundColor3 = Color3.fromRGB(120, 160, 255)
+                            BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                         })
                         local tween2 = TweenService:Create(thisKnob, tween, {
                             Position = UDim2.new(0, 20, 0.5, -7), BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3234,24 +3211,16 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                             tween3:Play()
                         end
 
-                        if thisGradient then
-                            thisGradient.Transparency = NumberSequence.new({
-                                NumberSequenceKeypoint.new(0, 0.18),
-                                NumberSequenceKeypoint.new(0.5, 0),
-                                NumberSequenceKeypoint.new(1, 0.18)
-                            })
-                        end
-                        
                         _trackTween(tween1)
                         _trackTween(tween2)
                         tween1:Play()
                         tween2:Play()
                     else
                         local tween1 = TweenService:Create(thisTrack, tween, {
-                            BackgroundColor3 = Color3.fromRGB(78, 78, 85)
+                            BackgroundColor3 = Color3.fromRGB(75, 75, 80)
                         })
                         local tween2 = TweenService:Create(thisKnob, tween, {
-                            Position = UDim2.new(0, 2, 0.5, -7), BackgroundColor3 = Color3.fromRGB(110, 110, 118)
+                            Position = UDim2.new(0, 2, 0.5, -7), BackgroundColor3 = Color3.fromRGB(160, 160, 165)
 
                         })
                         
@@ -3263,10 +3232,6 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                             tween3:Play()
                         end
 
-                        if thisGradient then
-                            thisGradient.Transparency = NumberSequence.new(1)
-                        end
-                        
                         _trackTween(tween1)
                         _trackTween(tween2)
                         tween1:Play()
@@ -3498,9 +3463,9 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
             local CheckboxGradient = Karnage.Instance("UIGradient", {
                 Parent = CheckboxBox,
                 Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(95, 135, 235)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(120, 160, 255)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(95, 135, 235))
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(200, 200, 200)),
+                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(200, 200, 200))
                 }),
                 Rotation = 135,
                 Transparency = NumberSequence.new(1)
@@ -3544,7 +3509,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                     
                     if currentState then
                         local tween1 = TweenService:Create(thisBox, tween, {
-                            BackgroundColor3 = Color3.fromRGB(120, 160, 255)
+                            BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                         })
                         local tween2 = TweenService:Create(thisIcon, tween, {
                             ImageTransparency = 0, ImageColor3 = Color3.fromRGB(255, 255, 255)
@@ -4048,7 +4013,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
                         
                         local OptHighlightBar = Karnage.Instance("Frame", {
                             Parent = OptBtn,
-                            BackgroundColor3 = Color3.fromRGB(120, 160, 255),
+                            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                             BackgroundTransparency = 0,
                             BorderSizePixel = 0,
                             Size = (isSelected and Karnage.DropdownBar) and UDim2.new(0, 4, 0, 20) or UDim2.new(0, 0, 0, 20),
@@ -4390,7 +4355,7 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
             
             local FillBar = Karnage.Instance("Frame", {
                 Parent = SliderBar,
-                BackgroundColor3 = Color3.fromRGB(120, 160, 255),
+                BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                 Size = UDim2.new(0, 0, 1, 0),
                 ZIndex = 2,
                 BorderSizePixel = 0,
@@ -4407,9 +4372,9 @@ Karnage.Create = LPH_NO_VIRTUALIZE(function(config)
             Karnage.Instance("UIGradient", {
                 Parent = FillBar,
                 Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(95, 135, 235)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(120, 160, 255)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(95, 135, 235))
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(200, 200, 200)),
+                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(200, 200, 200))
                 }),
                 Rotation = 90,
                 Transparency = NumberSequence.new({
